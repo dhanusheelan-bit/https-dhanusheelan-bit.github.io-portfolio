@@ -98,4 +98,67 @@ showLessBtn?.addEventListener("click", () => {
 particlesJS("particles-js", {
     "particles": {
         "number": { "value": 55, "density": { "enable": true, "value_area": 800 }},
-        "color": { "value": "
+        "color": { "value": "#ff0000" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.4 },
+        "size": { "value": 3, "random": true },
+        "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#ff0000",
+            "opacity": 0.3,
+            "width": 1
+        },
+        "move": {
+            "enable": true,
+            "speed": 2,
+            "direction": "none",
+            "straight": false
+        }
+    },
+    "interactivity": {
+        "events": {
+            "onhover": { "enable": true, "mode": "grab" }
+        }
+    },
+    "retina_detect": true
+});
+
+
+/* ==========================================================
+   AUTO LOAD GITHUB REPOSITORIES
+   ========================================================== */
+function loadGitHubRepos() {
+    const username = "dhanusheelan-bit";
+    const container = document.getElementById("github-projects");
+
+    if (!container) return;
+
+    fetch(`https://api.github.com/users/${username}/repos`)
+        .then(response => response.json())
+        .then(data => {
+            container.innerHTML = "";
+
+            data.forEach(repo => {
+                if (repo.fork) return; // skip forks
+
+                const card = document.createElement("div");
+                card.classList.add("repo-card");
+
+                card.innerHTML = `
+                    <h4>${repo.name}</h4>
+                    <p>${repo.description || "No description available."}</p>
+                    <span class="repo-lang">Language: ${repo.language}</span><br>
+                    <a class="repo-link" href="${repo.html_url}" target="_blank">View on GitHub →</a>
+                `;
+
+                container.appendChild(card);
+            });
+        })
+        .catch(() => {
+            container.innerHTML = "<p style='color:red;'>Unable to load GitHub repositories.</p>";
+        });
+}
+
+loadGitHubRepos();
+
