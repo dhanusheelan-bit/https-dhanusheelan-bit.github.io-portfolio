@@ -164,7 +164,7 @@ h2 {
 }
 
 
-/* ================= SKILLS IN PROGRESS ================= */
+/* ================= SKILLS PROGRESS ================= */
 .skill-list {
     max-width: 700px;
     margin: auto;
@@ -316,71 +316,7 @@ form textarea:focus {
 }
 
 
-/* ================= FOOTER ================= */
-footer {
-    padding: 20px;
-    background: linear-gradient(to right, #000, #220000, #000);
-    text-align: center;
-}
-
-.footer-github {
-    color: #ff0000;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.footer-github:hover {
-    text-shadow: 0 0 12px red;
-}
-
-
-/* ================= REVEAL ANIMATION ================= */
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: 0.8s ease-in-out;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 768px) {
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: #111;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        padding: 20px 0;
-        text-align: center;
-        border-bottom: 1px solid #222;
-    }
-
-    .nav-links.mobile-menu {
-        display: flex;
-    }
-
-    .menu-btn {
-        display: block;
-    }
-
-    .hero {
-        padding-top: 160px;
-    }
-
-    .hero-image-container img {
-        width: 120px;
-        height: 120px;
-    }
-}
-/* =============== BLOG PAGE =============== */
+/* ================= BLOG PAGE ================= */
 .blog-body {
     background: #000;
     color: #fff;
@@ -436,7 +372,9 @@ footer {
 .blog-list li {
     margin: 8px 0;
 }
-/* =============== 404 PAGE =============== */
+
+
+/* ================= 404 PAGE ================= */
 .error-page {
     background: #000;
     height: 100vh;
@@ -462,3 +400,49 @@ footer {
 }
 
 
+/* ================= REVEAL ANIMATION ================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.8s ease-in-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #111;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        padding: 20px 0;
+        text-align: center;
+        border-bottom: 1px solid #222;
+    }
+
+    .nav-links.mobile-menu {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .hero {
+        padding-top: 160px;
+    }
+
+    .hero-image-container img {
+        width: 120px;
+        height: 120px;
+    }
+}
