@@ -29,15 +29,17 @@ window.addEventListener("scroll", revealOnScroll);
 revealOnScroll(); // run initially
 
 
-/* ==========================================================
-   TYPING ANIMATION
-   ========================================================== */
+
+/************************************************************
+  TYPING ANIMATION (UPGRADED VERSION)
+*************************************************************/
 const typingElement = document.querySelector(".typing");
 const typingWords = [
     "Java Full Stack Developer",
     "SQL Specialist",
-    "Motivation Creator",
-    "Mindset Builder"
+    "Mindset Builder",
+    "Silent Hard Worker",
+    "Shadow Mindset Creator"
 ];
 
 let wordIndex = 0;
@@ -68,15 +70,16 @@ function typeEffect() {
         }
     }
 
-    setTimeout(typeEffect, isDeleting ? 80 : 120);
+    setTimeout(typeEffect, isDeleting ? 70 : 120);
 }
 
 typeEffect();
 
 
-/* ==========================================================
-   EXTENDED DESCRIPTION: READ MORE / SHOW LESS
-   ========================================================== */
+
+/************************************************************
+  READ MORE / SHOW LESS (ABOUT SECTION)
+*************************************************************/
 const toggleBtn = document.getElementById("toggleAbout");
 const showLessBtn = document.getElementById("showLess");
 const extendedBox = document.getElementById("extendedAbout");
@@ -92,9 +95,52 @@ showLessBtn?.addEventListener("click", () => {
 });
 
 
-/* ==========================================================
-   PARTICLES JS CONFIG
-   ========================================================== */
+
+/************************************************************
+  AUTO LOAD GITHUB REPOSITORIES (UPGRADED)
+*************************************************************/
+function loadGitHubRepos() {
+    const username = "dhanusheelan-bit";
+    const container = document.getElementById("github-projects");
+
+    if (!container) return;
+
+    fetch(`https://api.github.com/users/${username}/repos`)
+        .then(response => response.json())
+        .then(data => {
+            container.innerHTML = "";
+
+            // sort repos by most recently updated
+            data.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+
+            data.forEach(repo => {
+                if (repo.fork) return; // skip forks
+
+                const card = document.createElement("div");
+                card.classList.add("repo-card");
+
+                card.innerHTML = `
+                    <h4>${repo.name}</h4>
+                    <p>${repo.description || "No description available."}</p>
+                    <span class="repo-lang">Language: ${repo.language || "N/A"}</span><br>
+                    <a class="repo-link" href="${repo.html_url}" target="_blank">View on GitHub →</a>
+                `;
+
+                container.appendChild(card);
+            });
+        })
+        .catch(() => {
+            container.innerHTML = "<p style='color:red;'>Unable to load GitHub repositories.</p>";
+        });
+}
+
+loadGitHubRepos();
+
+
+
+/************************************************************
+  PARTICLES JS CONFIG (RED PREMIUM MODE)
+*************************************************************/
 particlesJS("particles-js", {
     "particles": {
         "number": { "value": 55, "density": { "enable": true, "value_area": 800 }},
@@ -125,40 +171,14 @@ particlesJS("particles-js", {
 });
 
 
-/* ==========================================================
-   AUTO LOAD GITHUB REPOSITORIES
-   ========================================================== */
-function loadGitHubRepos() {
-    const username = "dhanusheelan-bit";
-    const container = document.getElementById("github-projects");
 
-    if (!container) return;
+/************************************************************
+  OPTIONAL PROFILE IMAGE AUTO-HIDE (NO IMAGE → HIDE)
+*************************************************************/
+const profileImg = document.getElementById("profile-img");
 
-    fetch(`https://api.github.com/users/${username}/repos`)
-        .then(response => response.json())
-        .then(data => {
-            container.innerHTML = "";
-
-            data.forEach(repo => {
-                if (repo.fork) return; // skip forks
-
-                const card = document.createElement("div");
-                card.classList.add("repo-card");
-
-                card.innerHTML = `
-                    <h4>${repo.name}</h4>
-                    <p>${repo.description || "No description available."}</p>
-                    <span class="repo-lang">Language: ${repo.language}</span><br>
-                    <a class="repo-link" href="${repo.html_url}" target="_blank">View on GitHub →</a>
-                `;
-
-                container.appendChild(card);
-            });
-        })
-        .catch(() => {
-            container.innerHTML = "<p style='color:red;'>Unable to load GitHub repositories.</p>";
-        });
+if (profileImg) {
+    profileImg.onerror = () => {
+        profileImg.style.display = "none";
+    };
 }
-
-loadGitHubRepos();
-
