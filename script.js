@@ -1,6 +1,6 @@
 /* ==========================================================
    MOBILE MENU TOGGLE
-   ========================================================== */
+========================================================== */
 const menuBtn = document.querySelector(".menu-btn");
 const navLinks = document.querySelector(".nav-links");
 
@@ -11,7 +11,7 @@ menuBtn?.addEventListener("click", () => {
 
 /* ==========================================================
    REVEAL ON SCROLL ANIMATION
-   ========================================================== */
+========================================================== */
 function revealOnScroll() {
     const reveals = document.querySelectorAll(".reveal");
 
@@ -29,17 +29,15 @@ window.addEventListener("scroll", revealOnScroll);
 revealOnScroll(); // run initially
 
 
-
-/************************************************************
-  TYPING ANIMATION (UPGRADED VERSION)
-*************************************************************/
+/* ==========================================================
+   TYPING ANIMATION — PREMIUM VERSION
+========================================================== */
 const typingElement = document.querySelector(".typing");
 const typingWords = [
-    "Java Full Stack Developer",
-    "SQL Specialist",
+    "Java Developer",
+    "SQL Learner",
     "Mindset Builder",
-    "Silent Hard Worker",
-    "Shadow Mindset Creator"
+    "Silent Hard Worker"
 ];
 
 let wordIndex = 0;
@@ -49,7 +47,7 @@ let isDeleting = false;
 function typeEffect() {
     if (!typingElement) return;
 
-    let currentWord = typingWords[wordIndex];
+    const currentWord = typingWords[wordIndex];
 
     if (!isDeleting) {
         typingElement.textContent = currentWord.substring(0, charIndex + 1);
@@ -70,77 +68,15 @@ function typeEffect() {
         }
     }
 
-    setTimeout(typeEffect, isDeleting ? 70 : 120);
+    setTimeout(typeEffect, isDeleting ? 60 : 120);
 }
 
 typeEffect();
 
 
-
-/************************************************************
-  READ MORE / SHOW LESS (ABOUT SECTION)
-*************************************************************/
-const toggleBtn = document.getElementById("toggleAbout");
-const showLessBtn = document.getElementById("showLess");
-const extendedBox = document.getElementById("extendedAbout");
-
-toggleBtn?.addEventListener("click", () => {
-    extendedBox.classList.add("visible");
-    toggleBtn.style.display = "none";
-});
-
-showLessBtn?.addEventListener("click", () => {
-    extendedBox.classList.remove("visible");
-    toggleBtn.style.display = "inline-block";
-});
-
-
-
-/************************************************************
-  AUTO LOAD GITHUB REPOSITORIES (UPGRADED)
-*************************************************************/
-function loadGitHubRepos() {
-    const username = "dhanusheelan-bit";
-    const container = document.getElementById("github-projects");
-
-    if (!container) return;
-
-    fetch(`https://api.github.com/users/${username}/repos`)
-        .then(response => response.json())
-        .then(data => {
-            container.innerHTML = "";
-
-            // sort repos by most recently updated
-            data.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
-
-            data.forEach(repo => {
-                if (repo.fork) return; // skip forks
-
-                const card = document.createElement("div");
-                card.classList.add("repo-card");
-
-                card.innerHTML = `
-                    <h4>${repo.name}</h4>
-                    <p>${repo.description || "No description available."}</p>
-                    <span class="repo-lang">Language: ${repo.language || "N/A"}</span><br>
-                    <a class="repo-link" href="${repo.html_url}" target="_blank">View on GitHub →</a>
-                `;
-
-                container.appendChild(card);
-            });
-        })
-        .catch(() => {
-            container.innerHTML = "<p style='color:red;'>Unable to load GitHub repositories.</p>";
-        });
-}
-
-loadGitHubRepos();
-
-
-
-/************************************************************
-  PARTICLES JS CONFIG (RED PREMIUM MODE)
-*************************************************************/
+/* ==========================================================
+   PARTICLES JS CONFIG (RED PREMIUM MODE)
+========================================================== */
 particlesJS("particles-js", {
     "particles": {
         "number": { "value": 55, "density": { "enable": true, "value_area": 800 }},
@@ -158,23 +94,19 @@ particlesJS("particles-js", {
         "move": {
             "enable": true,
             "speed": 2,
-            "direction": "none",
-            "straight": false
+            "direction": "none"
         }
     },
     "interactivity": {
-        "events": {
-            "onhover": { "enable": true, "mode": "grab" }
-        }
+        "events": { "onhover": { "enable": true, "mode": "grab" } }
     },
     "retina_detect": true
 });
 
 
-
-/************************************************************
-  OPTIONAL PROFILE IMAGE AUTO-HIDE (NO IMAGE → HIDE)
-*************************************************************/
+/* ==========================================================
+   PROFILE IMAGE AUTO-HIDE IF MISSING
+========================================================== */
 const profileImg = document.getElementById("profile-img");
 
 if (profileImg) {
@@ -182,3 +114,13 @@ if (profileImg) {
         profileImg.style.display = "none";
     };
 }
+
+
+/* ==========================================================
+   SMOOTH PAGE TRANSITIONS (FADE-IN)
+========================================================== */
+document.body.classList.add("page-loaded");
+
+window.addEventListener("load", () => {
+    document.body.classList.add("fade-in");
+});
