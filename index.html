@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dhanusheelan B Dhanush | Portfolio V4.1</title>
+    <title>Dhanusheelan B Dhanush | Portfolio V4.2</title>
 
     <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
@@ -18,116 +18,188 @@
 
 <body>
 
-    <!-- HERO SECTION -->
-    <section id="home" class="hero">
-        <div id="particles-js"></div>
+<!-- ================= NAVBAR ================= -->
+<header>
+    <div class="navbar">
+        <div class="logo">Dhanus<span>heelan</span></div>
 
-        <div class="hero-content reveal">
-            <h1>I'm <span>Dhanusheelan B Dhanush</span></h1>
-            <h3 class="typing"></h3>
+        <i class="fa-solid fa-bars menu-btn"></i>
 
-            <div class="hero-btns">
-                <a href="#projects" class="btn">View My Work</a>
-                <a href="resume.pdf" class="btn-outline" download>Download Resume</a>
-            </div>
+        <nav class="nav-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#shadow">Shadow Mindset</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ================= HERO SECTION ================= -->
+<section id="home" class="hero">
+    <div id="particles-js"></div>
+
+    <div class="hero-content reveal">
+        <h1>Hello, I'm <br><span>Dhanusheelan B Dhanush</span></h1>
+        <h3 class="typing"></h3>
+
+        <!-- HERO IMAGE HOLDER (empty now) -->
+        <div class="hero-image-container">
+            <!-- If user uploads profile.png, it will appear automatically -->
+            <img id="profile-img" src="profile.png" alt="Profile Image"
+                 onerror="this.style.display='none'" />
         </div>
-    </section>
 
-    <!-- ABOUT SECTION -->
-    <section id="about" class="about reveal">
-        <h2>About Me</h2>
+        <div class="hero-btns">
+            <a href="#projects" class="btn">View My Work</a>
+            <a href="resume.pdf" class="btn-outline" download>Download Resume</a>
+        </div>
+    </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="about reveal">
+    <h2>About Me</h2>
+    <p>
+        A disciplined Java Full Stack Developer from Mysuru, focused on building clean applications
+        and improving myself daily through consistency, discipline, and self-mastery.
+    </p>
+
+    <button id="toggleAbout" class="btn-outline small-btn">Read More</button>
+
+    <div id="extendedAbout" class="extended hidden">
         <p>
-            I am a disciplined Java Full Stack Developer from Mysuru, focused on building clean applications,
-            leveling up daily through routine, discipline, and consistency.
+            I believe in mastering myself before mastering my career. My journey includes strong
+            technical learning along with mental strength, discipline, and emotional control.
         </p>
 
-        <!-- EXTENDED DESCRIPTION -->
-        <div class="more-about">
-            <button id="toggleAbout" class="btn-outline small-btn">Read More</button>
-
-            <div id="extendedAbout" class="extended hidden">
-                <p>
-                    I believe in mastering myself before mastering my career. I develop myself daily through consistency,
-                    discipline, emotional control, and learning. My journey combines strong technical development
-                    and strong mindset growth.
-                </p>
-
-                <p>
-                    I push myself to solve harder problems, build better software, and grow mentally stronger through
-                    responsibility and commitment. My long-term vision is to become a strong full-stack developer and
-                    inspire others through my actions and the Shadow Mindset journey.
-                </p>
-
-                <button id="showLess" class="btn-outline small-btn">Show Less</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="skills reveal">
-        <h2>Skills</h2>
-
-        <div class="skill"><p>Java</p><div class="bar"><div class="fill" style="width: 90%"></div></div></div>
-        <div class="skill"><p>SQL</p><div class="bar"><div class="fill" style="width: 85%"></div></div></div>
-        <div class="skill"><p>HTML & CSS</p><div class="bar"><div class="fill" style="width: 80%"></div></div></div>
-        <div class="skill"><p>JavaScript</p><div class="bar"><div class="fill" style="width: 75%"></div></div></div>
-        <div class="skill"><p>Django</p><div class="bar"><div class="fill" style="width: 70%"></div></div></div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="projects reveal">
-        <h2>Projects</h2>
-
-        <h3 class="sub-title">GitHub Repositories (Auto Loaded)</h3>
-
-        <div id="github-projects" class="github-projects">
-            <p style="color: #888;">Loading projects...</p>
-        </div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="education" class="education reveal">
-        <h2>Education</h2>
-        <p>BCA – Final Year (Java Full Stack Track)</p>
-    </section>
-
-    <!-- YOUTUBE -->
-    <section id="youtube" class="youtube reveal">
-        <h2>Shadow Mindset</h2>
-        <p>Motivation | Discipline | Mental Strength</p>
-        <a href="#" class="btn" target="_blank">Visit Channel</a>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="contact reveal">
-        <h2>Contact Me</h2>
-
-        <div class="social-icons">
-            <a href="mailto:dhanusheelan@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-            <a href="https://www.linkedin.com/in/dhanusheelan-b-11b33b288" target="_blank">
-                <i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://www.instagram.com/heart_haker__ds" target="_blank">
-                <i class="fa-brands fa-instagram"></i></a>
-            <a href="https://github.com/dhanusheelan-bit" target="_blank">
-                <i class="fa-brands fa-github"></i></a>
-        </div>
-
-        <form>
-            <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required />
-            <textarea placeholder="Message" rows="5" required></textarea>
-            <button class="btn" type="submit">Send</button>
-        </form>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <p>© 2025 Dhanusheelan B Dhanush |
-            <a href="https://github.com/dhanusheelan-bit" target="_blank" class="footer-github">GitHub</a>
+        <p>
+            My long-term vision is to become a powerful full-stack developer and inspire others
+            through my Shadow Mindset discipline journey.
         </p>
-    </footer>
+
+        <button id="showLess" class="btn-outline small-btn">Show Less</button>
+    </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services" class="services reveal">
+    <h2>Services</h2>
+
+    <div class="service-boxes">
+        <div class="service-card">
+            <i class="fa-solid fa-code"></i>
+            <h3>Full Stack Development</h3>
+            <p>Creating responsive, powerful applications using Java, SQL, HTML, CSS, and JS.</p>
+        </div>
+
+        <div class="service-card">
+            <i class="fa-solid fa-database"></i>
+            <h3>Database Design</h3>
+            <p>Optimizing database structures, queries, and performance using SQL.</p>
+        </div>
+
+        <div class="service-card">
+            <i class="fa-solid fa-brain"></i>
+            <h3>Problem Solving</h3>
+            <p>Writing efficient logic and programs to solve real-world challenges.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills" class="skills reveal">
+    <h2>Skills</h2>
+
+    <div class="skill-group">
+        <div class="skill-card">
+            <p>Java</p>
+            <div class="bar"><div class="fill" style="width: 90%"></div></div>
+        </div>
+
+        <div class="skill-card">
+            <p>SQL</p>
+            <div class="bar"><div class="fill" style="width: 85%"></div></div>
+        </div>
+
+        <div class="skill-card">
+            <p>JavaScript</p>
+            <div class="bar"><div class="fill" style="width: 75%"></div></div>
+        </div>
+
+        <div class="skill-card">
+            <p>HTML & CSS</p>
+            <div class="bar"><div class="fill" style="width: 80%"></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects" class="projects reveal">
+    <h2>Featured Projects</h2>
+
+    <div id="github-projects" class="github-projects">
+        <p style="color: #888;">Loading projects...</p>
+    </div>
+</section>
+
+<!-- ================= SHADOW MINDSET ================= -->
+<section id="shadow" class="shadow reveal">
+    <h2>Shadow Mindset</h2>
+    <p class="shadow-quote">
+        “Discipline is your weapon. Silence is your power. Consistency is your identity.”
+    </p>
+
+    <a href="#" class="btn" target="_blank">Visit YouTube Channel</a>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section id="testimonials" class="testimonials reveal">
+    <h2>Testimonials</h2>
+
+    <div class="test-boxes">
+        <div class="test-card">
+            <p>“Focused, disciplined and hardworking. A developer with a strong mindset.”</p>
+            <h4>- Mentor Review</h4>
+        </div>
+
+        <div class="test-card">
+            <p>“Writes clean code and learns fast. Sharp problem-solving ability.”</p>
+            <h4>- Project Guide</h4>
+        </div>
+    </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="contact reveal">
+    <h2>Contact Me</h2>
+
+    <div class="social-icons">
+        <a href="mailto:dhanusheelan@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/dhanusheelan-b-11b33b288" target="_blank">
+            <i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/heart_haker__ds" target="_blank">
+            <i class="fa-brands fa-instagram"></i></a>
+        <a href="https://github.com/dhanusheelan-bit" target="_blank">
+            <i class="fa-brands fa-github"></i></a>
+    </div>
+
+    <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Message" rows="5" required></textarea>
+        <button class="btn" type="submit">Send</button>
+    </form>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <p>© 2025 Dhanusheelan B Dhanush |
+        <a href="https://github.com/dhanusheelan-bit" target="_blank" class="footer-github">GitHub</a>
+    </p>
+</footer>
 
 </body>
 </html>
-
-
